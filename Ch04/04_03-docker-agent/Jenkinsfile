@@ -5,6 +5,7 @@ pipeline {
     stages {
         stage('Source') {
             steps {
+                sh 'sudo su -'
                 sh 'mvn --version'
                 sh 'git --version'
                 git branch: 'main',
