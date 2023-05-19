@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'public.ecr.aws/docker/library/maven:latest' }
+        docker { image 'public.ecr.aws/docker/library/maven:3.8.4' }
     }
     stages {
         stage('Source') {
@@ -14,7 +14,6 @@ pipeline {
         stage('Clean') {
             steps {
                 dir("${env.WORKSPACE}/Ch04/04_03-docker-agent"){
-                    sh 'sudo su -'
                     sh 'mvn clean'
                 }
             }
